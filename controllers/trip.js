@@ -8,7 +8,8 @@ const { Seat } = require("../models/seat");
 const getAllTrip = async(req, res) => {
   try{
     const trips = await Trip.find();
-    res.sent(trips);
+    console.log(trips);
+    res.status(200).send(trips);
   }catch{(err) => {
     res.status(500).send({ message: err });
   }}
@@ -142,4 +143,4 @@ const deleteTrip = async(req,res) => {
     res.status(200).send({message:"Delete trip successfully!!"})
   }catch{(err) => res.status(500).send({ error: err });}
 } 
-module.exports = { postBookTrip, getTrip, postTrip ,deleteTrip};
+module.exports = { postBookTrip, getTrip, postTrip ,deleteTrip , getAllTrip};
